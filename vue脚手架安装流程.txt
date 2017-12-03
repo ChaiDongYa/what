@@ -1,0 +1,73 @@
+基本使用流程:
+1. npm install vue-cli -g	安装 vue命令环境
+	验证安装ok?
+		vue --version
+2. 生成项目模板
+	vue init <模板名> 本地文件夹名称
+3. 进入到生成目录里面
+	cd xxx
+	npm install
+4. npm run dev
+
+5.webpack  配置文件
+cnpm i url-loader style-loader html-withimg-loader webpack css-loader file-loader jquery html-webpack-plugin
+
+6.cnpm i vue-router vuex vue-axios
+
+
+
+
+
+vue脚手架
+vue 脚手架下载 首先安装 cnpm i  vue-cli -g
+                         下载vue脚手架 vue init simple
+  启动vue脚手架 npm run dev
+       引入外部组件－－>export (引入)  名字  from 路径 ‘  ’
+	在哪里引入就一定要在哪了的要的export中的components中写上引入的名字
+vue route
+	首先下载Vue路由(route)cnpm i vue-router
+	首先在创建一个文件夹用以存放router的各项配置  在一个创建一个.js文件(这个是所谓的配置文件)  在这个文件中所用的路由组件用import引入  然后  export default  一个大的json  其中存放routes的各项配置这个配制的数据格式为数组  每一项都是json格式  其中有
+path(地址)和component(路由组件)＊号代表其他
+	配置完成后  就在最外层的index.js中继续引入配置首先 进行引入 
+ import Router from ‘vue-router’
+import ‘名字’ form ‘配制的路径’
+Vue.use(route)
+const router(这个名字是固定的不能更改) = new Router(“路由配制的路径”)
+然后在new vue中进行挂载
+最后  在app.vue 文件中进行书写 router－view标签就可以了
+import(引入)
+export(导出)
+vuex备忘手册
+首先下载 vuex 方法 cnpm i vuex -d
+引入方法 vuex {mapGetters,mapActions} from ‘vuex’
+这个vuex的实现方法是采用的vue的计算函数 computed
+前台的vuex传输：
+在关于这个组件中
+其中有一项是computed但是写法略有不同
+computed：mapGetters([  <— 其中这是一个数组被一个括号包起来
+		<－－在这里面放入数据名称
+ ])
+方法的放入是一般是methods但是这里的写法略有不同
+methods:mapActions([  <— 其中这是一个数组被一个括号包起来
+	<－－在这里面放入数据名称
+ ])
+
+
+首先建立一个关于所有组件的文件夹 其中建立一个关于vuex的js配置文件文件
+在这里面需要引入vue和vuex 最后需要vue.use(vuex)
+其中在这里面 有这样几个大json
+const state(声明数据)
+const getters（声明数据最后输出的）
+const mutations（里面放入方法）
+const actions（里面放入从前台接受的方法名并从在vuex中寻找到这个这个方法，这个方法定义在mutations里面）
+在这其中写法略有不同 
+const actions＝{
+	这个是从前台传过来的方法名－>add:({commit})=>{
+		commit(‘自定义的名字’)＝>这个自定义的名字必须能在mutations这里面能找得到
+	 }
+ }
+最后输出  export default new Vuex.Store({
+	在这里面放入这些json的名字
+ })
+
+当配置文件完成配制的时候最后则需要在main.js中引入配置文件  名称限制（store）最后挂载一下  完成！！！

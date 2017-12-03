@@ -1,0 +1,45 @@
+1. 项目的启动
+	npm run start
+	yarn start
+2.项目组件的输出
+	index.js
+	import 引入
+
+3.router的下载和使用
+	下载 cnpm i react-router-dom  --save（写入page.json）
+	引入 import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
+sublime 文件路径提醒   autoflieName
+注意:
+	Router标签里面只能有一个子级
+	exact 默认显示的组件或页面
+	写组件的话一定要输出 输出 输出 export default 组件名
+	
+	route标签结束时一定要有结束符 /
+书写路由的基本配置
+import React,{Compoent} from 'react';
+
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
+class 组件名 extends Component{
+	render(){
+		return(
+			<div>
+				<Router>
+					<div className='class名字'>
+
+						<Link to='/跳转的地址'></Link>
+						<Route exact path='/跳转的地址' component={组件名} />
+						<Route  path='/跳转的地址' component={组件名} />
+					</div>
+				</Router>
+			</div>
+
+		)
+	}
+}
+export default 组件名
+
+不加入 {Component}
+import React from 'react';
+class 组件名 extends React.Component{}
+
+
